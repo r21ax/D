@@ -6,11 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function getPaginateByLimit(int $limit_count = 10)
+    //保存定義
+    protected $fillable = [
+        'title',
+        'comment',
+        'address',
+        'prefecture_id',
+        'image',
+        'user_id'
+    ];
+    
+    function getPaginateByLimit(int $limit_count = 5)
     {
-        // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('prefecture')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
+    public function prefecture()
+    {
+        return $this->belongsTo('App\Prefecture');
+    }
     
 }
