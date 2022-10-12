@@ -26,4 +26,9 @@ class Post extends Model
         return $this->belongsTo('App\Prefecture');
     }
     
+    public function likes()//いいね機能追加
+    {
+        return $this->belongsToMany('App\Like');
+    }
+    
 }

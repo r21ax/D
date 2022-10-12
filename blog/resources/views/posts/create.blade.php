@@ -28,7 +28,7 @@
                 <input type="text" name="address" placeholder="住所"/>
             </div>
         
-            <<input type="file" name="image">
+            <input type="file" name="image">
             
             <div class="body">
                <h2>コメント</h2>

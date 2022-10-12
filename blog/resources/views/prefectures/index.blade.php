@@ -19,15 +19,20 @@
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
-                    <h1><a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->name }}</a></h1>
+                    <h3 class='prefecture_id'>
+                     <a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->prefecture }}</a>
+                    </h3>
                     <!-- 画像を表示 -->
-                    <img src="{{ $post->image }}">
+                    <img src="{{ $post->image }}" width="25%">
                     <p class='comment'>{{ $post->comment }}</p>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
+        </div>
+        <div class="footer">
+            <a href="/">back</a>
         </div>
         @endsection
     </body>

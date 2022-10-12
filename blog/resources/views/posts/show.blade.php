@@ -14,7 +14,10 @@
         <h1 class="title">
             {{ $post->title }}
         </h1>
-        <img src="{{ $post->image }}">
+        <h3 class='prefecture_id'>
+             <a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->prefecture }}</a>
+        </h3>
+        <img src="{{ $post->image }}" width="35%">
         
         <div class="content">
             <div class="content__post">

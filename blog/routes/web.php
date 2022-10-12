@@ -12,11 +12,14 @@
 
 
 Route::get('/', 'PostController@index')->middleware('auth');
+Route::get('/prefectures/{prefecture}', 'PrefectureController@index');
 Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{post}', 'PostController@show');
 Route::post('/posts', 'PostController@store');
 Route::delete('/posts/{post}', 'PostController@delete');
-Route::get('/prefectures/{prefecture}', 'PrefectureController@index');
+
+Route::post('posts/{post}/likes', 'LikeController@store')->name('likes');
+Route::post('posts/{post}/dislikes', 'LikeController@destroy')->name('dislikes');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
